@@ -20,6 +20,14 @@ ENABLED_CHECKS = [
     "no_false_terminal_oxo",
 ]
 
+def flatten_list(lst):
+    for element in lst:
+        if type(element) is list:
+            for element2 in flatten_list(element):
+                yield element2
+        else:
+            yield element
+
 class MofCheckerWidget(ipw.VBox):
     """Widget that allows to check MOF structure correctness."""
     structure = Instance(Atoms, allow_none=True)
@@ -80,7 +88,7 @@ class MofCheckerWidget(ipw.VBox):
         selection = self.selection
 
         h_positions = self.mfchk.undercoordinated_c_candidate_positions + self.mfchk.undercoordinated_n_candidate_positions
-        for pos in h_positions:
+        for pos in flatten_list(h_positions):
             atoms += Atom('H', pos)
 
         self.structure = atoms
