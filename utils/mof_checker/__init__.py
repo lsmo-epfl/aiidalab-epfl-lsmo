@@ -1,10 +1,9 @@
 import functools as fct
-import tempfile
 from itertools import chain
 
 import ipywidgets as ipw
 from ase import Atom, Atoms
-from IPython.display import clear_output
+from IPython.display import clear_output, display
 from mofchecker import MOFChecker
 from traitlets import Instance, Int, List, observe
 
