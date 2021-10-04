@@ -1,13 +1,14 @@
 import ipywidgets as ipw
 
+
 def get_start_widget(appbase, jupbase):
-    #http://fontawesome.io/icons/
+    # http://fontawesome.io/icons/
     template = """
     <table>
     <tr>
         <th style="text-align:center">Prepare the structure</th>
         <th style="width:70px" rowspan=2></th>
-        <th style="text-align:center">Pore analysis</th>        
+        <th style="text-align:center">Pore analysis</th>
         <th style="width:70px" rowspan=2></th>
         <th style="text-align:center">Isotherm calculations</th>
     <tr>
@@ -27,14 +28,11 @@ def get_start_widget(appbase, jupbase):
     <li><a href="{appbase}/analyse_isotherm_results.ipynb" target="_blank">Analyse the results</a>
     <li><a href="{appbase}/results.ipynb?process_label=IsothermWorkChain" target="_blank">Results</a>
     </ul></td>
-     
-
-    
-
     </tr></table>
 """
-    
+
     html = template.format(appbase=appbase, jupbase=jupbase)
     return ipw.HTML(html)
-    
-#EOF
+
+
+# EOF
